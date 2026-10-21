@@ -125,3 +125,9 @@ footer p:first-child {
 .add-cart:hover {
     @apply bg-[#8B6BB8];
 }
+/*shop*/
+.titre-shop{
+    @apply text-[#E9E2D4] font-bold text-2xl flex justify-center items-center flex-col;
+}
+
+

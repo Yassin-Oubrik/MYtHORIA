@@ -32,29 +32,31 @@ const boosters = [
     name: "Beginner Pack",
     price: 50,
     image: "images/img2.jpg",
-    description: "Start your Mythoria adventure."
-  },
+    description: "Start your Mythoria adventure.",
+    quantite :1  },
   {
     id: 2,
     name: "Summoning of the Legends",
     price: 100,
     image: "images/img7.jpg",
-    description: "Discover legendary cards."
+    description: "Discover legendary cards.",
+    quantite :1
   },
   {
     id: 3,
     name: "Dark Summoning",
     price: 150,
     image: "images/img8.jpg",
-    description: "Discover the power of darkness."
+    description: "Discover the power of darkness.",
+    quantite :1
   },
   {
     id: 4,
     name: "Lucky Pack",
     price: 75,
     image: "images/img9.jpg",
-    description: "Discover your surprise cards."
-  }
+    description: "Discover your surprise cards.",
+    quantite :1 }
 ];
 
 const cards = [
@@ -85,7 +87,7 @@ const cards = [
     image: "images/img12.jpg",
     description: "A master of forgotten spells."
   },  {
-    id: 3,
+    id: 4,
     name: "The Arcane Sorcerer",
     type: "Spells",
     rarity: "Legendary",

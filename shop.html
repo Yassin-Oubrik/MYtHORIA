@@ -23,7 +23,7 @@
     </header>
 
     <main>
-        <section>
+        <section class="titre-shop">
             <h1>Mythoria Shop</h1>
             <p>Discover our boosters and find your legendary cards.</p>
         </section>
@@ -35,8 +35,13 @@
 
         <section id="panier">
             <h2>My Cart</h2>
-            <div id="cart-items"></div>
-            <p>Total: <span id="total">0</span> DH</p>
+            <div id="shop-boosters" class="cards"></div>
+            <div>
+            <p>Total : <span id="total">0</span> DH</p>
+            <button id="vider" class="border border-[#8B6BB8] text-white px-3 py-2 rounded">Vider le panier</button>
+             <button id="valider"  class="bg-[#8B6BB8] text-white px-3 py-2 rounded">Valider la commande</button>
+            </div>
+
         </section>
     </main>
 
@@ -45,9 +50,8 @@
         <p>Forge your legend.</p>
         <p>&copy; 2026 Mythoria. All rights reserved.</p>
     </footer>
-
     <script src="./data.js"></script>
-    <script src="./shop.js"></script>
+    <script src="./shop.js"></script>   
 
 </body>
 </html>
