@@ -8,6 +8,8 @@ boosters.forEach((b) => {
             <h3>${b.name}</h3>
             <p>${b.description}</p>
             <p>Price: ${b.price} DH</p>
+            <p>Number of cards: ${b.nombreCartes}</p>
+            <p>Categories: ${b.categories.join(", ")}</p>
             <button class="add-cart">Add to Cart</button>
         </article>
     `;
