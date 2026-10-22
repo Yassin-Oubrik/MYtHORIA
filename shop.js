@@ -117,6 +117,7 @@ valider.addEventListener("click", () => {
     } else {
         alert("Commande valide ");
         afiche_panyier.innerHTML = "";
+        document.getElementById('total').innerHTML=''
 
     }
 });
