@@ -33,14 +33,19 @@ const boosters = [
     price: 50,
     image: "images/img2.jpg",
     description: "Start your Mythoria adventure.",
-    quantite :1  },
+    quantite: 1,
+    nombreCartes: 5,
+    categories: ["Heroes", "Monsters"]
+  },
   {
     id: 2,
     name: "Summoning of the Legends",
     price: 100,
     image: "images/img7.jpg",
     description: "Discover legendary cards.",
-    quantite :1
+    quantite: 1,
+    nombreCartes: 8,
+    categories: ["Heroes", "Spells"]
   },
   {
     id: 3,
@@ -48,7 +53,9 @@ const boosters = [
     price: 150,
     image: "images/img8.jpg",
     description: "Discover the power of darkness.",
-    quantite :1
+    quantite: 1,
+    nombreCartes: 10,
+    categories: ["Monsters", "Spells"]
   },
   {
     id: 4,
@@ -56,7 +63,10 @@ const boosters = [
     price: 75,
     image: "images/img9.jpg",
     description: "Discover your surprise cards.",
-    quantite :1 }
+    quantite: 1,
+    nombreCartes: 5,
+    categories: ["Heroes", "Monsters", "Minions", "Spells"]
+  }
 ];
 
 const cards = [
