@@ -1,6 +1,5 @@
-
+// pour afficher tous les card a travers data
 const shopBoosters = document.querySelector("#shop-boosters");
-
 boosters.forEach((b) => {
     shopBoosters.innerHTML += `
         <article id="${b.id}">
@@ -14,20 +13,19 @@ boosters.forEach((b) => {
         </article>
     `;
 });
-
-
+// pour afficher panier
 const panier_menu = document.getElementById('panier-menu')
 const panier = document.getElementById('panier')
 panier_menu.addEventListener('click', () => {
     panier.style.display = 'flex'
 })
 
-
+// pour cacher panier
 const x = document.getElementById('x')
 x.addEventListener('click', () => {
     panier.style.display = 'none'
 })
-
+// click sur btn add (event et increment)
 const btn = document.querySelectorAll('.add-cart')
 let inc = 0
 const affichage_panier = document.querySelector('#affichage_panier')
@@ -35,7 +33,7 @@ for (const element of btn) {
     element.addEventListener('click', () => {
         const id = element.parentElement.id
         const trouve = boosters.find(e => e.id == id)
-if (!repet(id)) {
+if (!repet(id)){
             const span = document.querySelector('#panier-menu a  span')
             span.innerHTML = `(${inc = inc + 1})`
             affichage_panier.insertAdjacentHTML('afterbegin', `
@@ -64,12 +62,17 @@ affichage_panier.addEventListener('click', (e) => {
         e.target.parentElement.remove();
         const span = document.querySelector('#panier-menu a  span')
         span.innerHTML = `(${inc = inc - Number(e.target.parentElement.querySelector('.quantite').textContent)})`
-        if (affichage_panier.children.length === 0) {
-            panier.style.display = 'none'
-        }
+       paniervide()
     }
 });
-
+// si les article de panier == 0
+ function paniervide(){
+            if (affichage_panier.children.length === 0) {
+            panier.style.display = 'none'
+            return true
+        }
+ }
+ // plus et incrementer 
 affichage_panier.addEventListener('click', (e) => {
     if (e.target.classList.contains('plus')) {
         e.target.previousElementSibling.textContent = Number(e.target.previousElementSibling.textContent) + 1;
@@ -77,18 +80,17 @@ affichage_panier.addEventListener('click', (e) => {
         span.innerHTML = `(${inc = inc + 1})`
     }
 });
-
+// moin et decreme,ter
 affichage_panier.addEventListener('click', (e) => {
     if (e.target.classList.contains('moin')) {
         e.target.nextElementSibling.textContent = Number(e.target.nextElementSibling.textContent) - 1;
         const span = document.querySelector('#panier-menu a  span')
         span.innerHTML = `(${inc = inc - 1})`
         removequantite()
-        if (affichage_panier.children.length === 0) {
-            panier.style.display = 'none'
-        }
+        paniervide()
     }
 });
+//remove si quantite ===0
 function removequantite() {
     const quant = document.querySelectorAll('.quantite');
     for (const element of quant) {
@@ -97,9 +99,7 @@ function removequantite() {
         }
     }
 }
-
 // repetitation
-
 function repet(p) {
     const repet = affichage_panier.querySelectorAll('.article_panier');
     for (const element of repet) {
@@ -108,5 +108,4 @@ function repet(p) {
                 return true;
             }
     }
-
 }
