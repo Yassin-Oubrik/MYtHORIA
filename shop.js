@@ -34,7 +34,7 @@ for (const element of btn) {
     element.addEventListener('click', () => {
         const id = element.parentElement.id
         const trouve = boosters.find(e => e.id == id)
-if (!repet(id)){
+        if (!repet(id)) {
             const span = document.querySelector('#panier-menu a  span')
             span.innerHTML = `(${inc = inc + 1})`
             affichage_panier.insertAdjacentHTML('afterbegin', `
@@ -54,8 +54,10 @@ if (!repet(id)){
 </div>
         `)
             panier.style.display = 'flex'
-            
-        } 
+            document.getElementById('text_aucun').style.display = 'none'
+            total()
+
+        }
     })
 }
 // btnRemove
@@ -64,24 +66,27 @@ affichage_panier.addEventListener('click', (e) => {
         e.target.parentElement.remove();
         const span = document.querySelector('#panier-menu a  span')
         span.innerHTML = `(${inc = inc - Number(e.target.parentElement.querySelector('.quantite').textContent)})`
-       paniervide()
+        paniervide()
+        total()
     }
 });
 // si les article de panier == 0 et cache total
- function paniervide(){
-            if (affichage_panier.children.length === 0) {
-            panier.style.display = 'none'
-            document.getElementById('affichage_total').style.display='none'
-            document.getElementById('remove_all').style.display='none'
-            return true
-        }
- }
- // plus et incrementer 
+function paniervide() {
+    if (affichage_panier.children.length === 0) {
+        panier.style.display = 'none'
+        document.getElementById('affichage_total').style.display = 'none'
+        document.getElementById('remove_all').style.display = 'none'
+        document.getElementById('text_aucun').style.display = 'block'
+        return true
+    }
+}
+// plus et incrementer 
 affichage_panier.addEventListener('click', (e) => {
     if (e.target.classList.contains('plus')) {
         e.target.previousElementSibling.textContent = Number(e.target.previousElementSibling.textContent) + 1;
         const span = document.querySelector('#panier-menu a  span')
         span.innerHTML = `(${inc = inc + 1})`
+        total()
     }
 });
 // moin et decreme,ter
@@ -92,6 +97,7 @@ affichage_panier.addEventListener('click', (e) => {
         span.innerHTML = `(${inc = inc - 1})`
         removequantite()
         paniervide()
+        total()
     }
 });
 //remove si quantite ===0
@@ -107,45 +113,73 @@ function removequantite() {
 function repet(p) {
     const repet = affichage_panier.querySelectorAll('.article_panier');
     for (const element of repet) {
-            if (element.id === p) {
-                alert('cet element existe sure le panier');
-                return true;
-            }
+        if (element.id === p) {
+            alert('cet element existe sure le panier');
+            return true;
+        }
     }
 }
 //afficher total
-    for (const element of btn) {
-        element.addEventListener('click',()=>{
-            if (!document.getElementById('total_p')) {
-            document.querySelector('#affichage_total').insertAdjacentHTML('beforeend',`
+for (const element of btn) {
+    element.addEventListener('click', () => {
+        if (!document.getElementById('total_p')) {
+            document.querySelector('#affichage_total').insertAdjacentHTML('beforeend', `
                   <p id='total_p' style='font-weight: bold;font-size: 15px; color:#C8A96B'>
                   total:
                   <span id="total_number" style='margin-left:5px;color:#8B6BB8 ; font-size:12px'>0</span>
                   </p>
-                   <button id="achetre" style="padding:0px 10px; border:1px solid #C3B8D2; border-radius:25px;background-color:#C8A96B;color:black">acheter</button>`)
-            document.querySelector('#affichage_total').insertAdjacentHTML('afterend',`
+                   <button id="acheter" style="padding:0px 10px; border:1px solid #C3B8D2; border-radius:25px;background-color:#C8A96B;color:black">acheter</button>`)
+            document.querySelector('#affichage_total').insertAdjacentHTML('afterend', `
                 <button id='remove_all' style='cursor:pointer  ; margin-top:8px'>supprimer tous les article</button>
                 `)
-                removeAll()
-            }
-            document.querySelector('#affichage_total').style.display = 'flex'
-            document.getElementById('remove_all').style.display = 'block'
-        })
-    }
+            removeAll()
+            acheter()
+            total()
+        }
+        document.querySelector('#affichage_total').style.display = 'flex'
+        document.getElementById('remove_all').style.display = 'block'
+    })
+}
 
 //remove all
 function removeAll() {
-   const remove_all=document.getElementById('remove_all')
-   remove_all.addEventListener('click',(e)=>{
-    const rmvp= panier.querySelector('#affichage_panier')
-   rmvp.innerHTML=''
-    panier.style.display='none'
-    e.target.style.display='none'
-    document.querySelector('#affichage_total').style.display = 'none';
-    const span = document.querySelector('#panier-menu a  span')
-    inc =0
-    span.textContent= inc
-}) 
+    const remove_all = document.getElementById('remove_all')
+    remove_all.addEventListener('click', (e) => {
+        const affichage_panier = panier.querySelector('#affichage_panier')
+        affichage_panier.innerHTML = ''
+        panier.style.display = 'none'
+        document.getElementById('text_aucun').style.display = 'block'
+        e.target.style.display = 'none'
+        document.querySelector('#affichage_total').style.display = 'none';
+        const span = document.querySelector('#panier-menu a  span')
+        inc = 0
+        span.textContent = inc 
+        document.querySelector('#total_number').textContent = 0;
+    })
 }
+//valider
+function acheter() {
+            const achete = document.getElementById('acheter')
+            achete.addEventListener('click', () => {
+                if (confirm("Voulez-vous confirmer?")) {
+                    alert("Commande valide ");
+                    document.getElementById('remove_all').click()
+                }
+            })
+}
+//total
+function total() {
+       const article_panier = document.querySelectorAll('.article_panier')
+       let total = 0
+       for (const element of article_panier) {
+          const boos= boosters.find(e=>e.id == element.id)
+           total =total + (boos.price * Number(element.querySelector('.quantite').textContent))
+       }
+       document.querySelector('#total_number').textContent=total
+}
+
+
+
+
 
 
