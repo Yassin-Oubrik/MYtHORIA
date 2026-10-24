@@ -3,7 +3,7 @@ const shopBoosters = document.querySelector("#shop-boosters");
 
 boosters.forEach((b) => {
     shopBoosters.innerHTML += `
-        <article id=${b.id}>
+        <article id="${b.id}">
             <img src="${b.image}" alt="${b.name}">
             <h3>${b.name}</h3>
             <p>${b.description}</p>
@@ -16,108 +16,97 @@ boosters.forEach((b) => {
 });
 
 
-let ajouter = document.querySelectorAll('.add-cart');
-let afiche_panyier = document.getElementsByClassName("cards")[1];
-
-ajouter.forEach((e) => {
-    e.addEventListener("click", () => {
-        const id = Number(e.parentElement.id);
-        const boos = boosters.find((b) => b.id === id);
-        const existe = document.getElementById(`bita9a${id}`);
-
-        if (existe) {
-            const quantite = existe.querySelector(".quantite");
-            quantite.innerHTML = Number(quantite.innerHTML) + 1;
-        } else {
-            afiche_panyier.innerHTML += `
-                <article class='boosterpanyer'id="bita9a${boos.id}">
-                    <img src="${boos.image}" alt="${boos.name}">
-                    <h3>${boos.name}</h3>
-                    <p>Price: ${boos.price} DH</p>
-                    <button class="moins">-</button>
-                    <span class="quantite">1</span>
-                    <button class="plus">+</button>
-                    <button class="remove">Remove</button>
-                </article>
-            `;
-            total()
-        }
-    });
-
-});
-
-afiche_panyier.addEventListener("click", (e) => {
-    if (e.target.classList.contains("plus")) {
-        const article = e.target.parentElement;
-        const quantite = article.querySelector(".quantite");
-        quantite.innerHTML = Number(quantite.innerHTML) + 1;
-    }
-    total()
-});
+const panier_menu = document.getElementById('panier-menu')
+const panier = document.getElementById('panier')
+panier_menu.addEventListener('click', () => {
+    panier.style.display = 'flex'
+})
 
 
-afiche_panyier.addEventListener("click", (e) => {
-    if (e.target.classList.contains("moins")) {
-        const article = e.target.parentElement;
-        const quantite = article.querySelector(".quantite");
+const x = document.getElementById('x')
+x.addEventListener('click', () => {
+    panier.style.display = 'none'
+})
 
-        if (Number(quantite.innerHTML) > 1) {
-            quantite.innerHTML = Number(quantite.innerHTML) - 1;
-        }else{
-            e.target.parentElement.remove();
-        }
-    }
-    total()
-});
-
-
-afiche_panyier.addEventListener("click", (e) => {
-    if (e.target.classList.contains("remove")) {
+const btn = document.querySelectorAll('.add-cart')
+let inc = 0
+const affichage_panier = document.querySelector('#affichage_panier')
+for (const element of btn) {
+    element.addEventListener('click', () => {
+        const id = element.parentElement.id
+        const trouve = boosters.find(e => e.id == id)
+if (!repet(id)) {
+            const span = document.querySelector('#panier-menu a  span')
+            span.innerHTML = `(${inc = inc + 1})`
+            affichage_panier.insertAdjacentHTML('afterbegin', `
+<div class='article_panier' id="${trouve.id}" style="display:flex; align-items:center; gap:15px; padding:10px">
+    <img src="${trouve.image}" style="width:60px; height:90px; border-radius:6px;">
+    <div class="element_create" style="flex:1; font-size:14px;">
+        <p class="name" style="margin:3px ;">${trouve.name}</p>
+        <p class="number" style="margin:3px ;"> cards${trouve.nombreCartes} </p>
+        <p class="price" style="margin:3px ; color:#8B6BB8;">${trouve.price} DH</p>
+        <div style="display:flex; align-items:center; gap:12px; margin-top:6px;">
+            <span class="moin" style="cursor:pointer;">-</span>
+            <span class='quantite'>${1}</span>
+            <span class="plus" style="cursor:pointer;">+</span>
+        </div>
+    </div>
+    <button class="btn_remove" style=" cursor:pointer;">x</button>
+</div>
+        `)
+            panier.style.display = 'flex'
+        } 
+    })
+}
+// btnRemove
+affichage_panier.addEventListener('click', (e) => {
+    if (e.target.classList.contains('btn_remove')) {
         e.target.parentElement.remove();
+        const span = document.querySelector('#panier-menu a  span')
+        span.innerHTML = `(${inc = inc - Number(e.target.parentElement.querySelector('.quantite').textContent)})`
+        if (affichage_panier.children.length === 0) {
+            panier.style.display = 'none'
+        }
     }
-    total()
 });
 
-function total() {
-    let somme = 0;
+affichage_panier.addEventListener('click', (e) => {
+    if (e.target.classList.contains('plus')) {
+        e.target.previousElementSibling.textContent = Number(e.target.previousElementSibling.textContent) + 1;
+        const span = document.querySelector('#panier-menu a  span')
+        span.innerHTML = `(${inc = inc + 1})`
+    }
+});
 
-    const articles = document.querySelectorAll(".boosterpanyer");
-
-    articles.forEach((e) => {
-        const id = Number(e.id.replace("bita9a", ""));
-
-        const booster = boosters.find((b) => b.id === id);
-
-        if (booster) {
-            const quantite = Number(
-                e.querySelector(".quantite").textContent
-            );
-
-            somme += booster.price * quantite;
+affichage_panier.addEventListener('click', (e) => {
+    if (e.target.classList.contains('moin')) {
+        e.target.nextElementSibling.textContent = Number(e.target.nextElementSibling.textContent) - 1;
+        const span = document.querySelector('#panier-menu a  span')
+        span.innerHTML = `(${inc = inc - 1})`
+        removequantite()
+        if (affichage_panier.children.length === 0) {
+            panier.style.display = 'none'
         }
-    });
-
-    document.querySelector("#total").textContent = somme;
+    }
+});
+function removequantite() {
+    const quant = document.querySelectorAll('.quantite');
+    for (const element of quant) {
+        if (element.textContent == 0) {
+            element.parentElement.parentElement.parentElement.remove();
+        }
+    }
 }
 
+// repetitation
 
-const vider = document.querySelector("#vider");
-
-vider.addEventListener("click", () => {
-    afiche_panyier.innerHTML = "";
-    total();
-});
-
-
-const valider = document.querySelector("#valider");
-valider.addEventListener("click", () => {
-    const articles = afiche_panyier.querySelectorAll(".boosterpanyer");
-    if (articles.length === 0) {
-        alert("votre panier est vide ");
-    } else {
-        alert("Commande valide ");
-        afiche_panyier.innerHTML = "";
-        document.getElementById('total').innerHTML=''
-
+function repet(p) {
+    const repet = affichage_panier.querySelectorAll('.article_panier');
+    for (const element of repet) {
+            if (element.id === p) {
+                alert('cet element existe sure le panier');
+                return true;
+            }
     }
-});
+
+}

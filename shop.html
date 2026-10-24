@@ -18,6 +18,7 @@
                 <li><a href="opening.html">Opening</a></li>
                 <li><a href="grimoire.html">Grimoire</a></li>
                 <li><a href="deck.html">My Deck</a></li>
+                <li id="panier-menu"><a>Cart<span></span></a></li>
             </ul>
         </nav>
     </header>
@@ -33,16 +34,16 @@
             <div id="shop-boosters" class="cards"></div>
         </section>
 
-        <section id="panier">
-            <h2>My Cart</h2>
-            <div id="shop-boosters" class="cards"></div>
-            <div>
-            <p>Total : <span id="total">0</span> DH</p>
-            <button id="vider" class="border border-[#8B6BB8] text-white px-3 py-2 rounded">Vider le panier</button>
-             <button id="valider"  class="bg-[#8B6BB8] text-white px-3 py-2 rounded">Valider la commande</button>
+        <div id="panier" style="width: 300px; display: none; flex-direction: column;  border:1px solid #E9E2D4 ; padding: 20px; border-radius: 25px; position: fixed;top:100px;right: 50px;  background-color:#241A35 ; overflow-y: auto;max-height: 400px;" >
+            <div id="item" style=" display: flex; justify-content: space-between;align-items: center;">
+            <h2 id="x" style="cursor: pointer;">X</h2>
+            <h2 style="font-size: 15px;">your card</h2>
             </div>
+            <hr>
+            <div id="affichage_panier" class="display:flex ; gap :40px ; flex-direction:column ;">
 
-        </section>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -50,8 +51,8 @@
         <p>Forge your legend.</p>
         <p>&copy; 2026 Mythoria. All rights reserved.</p>
     </footer>
-    <script src="./data.js"></script>
-    <script src="./shop.js"></script>   
+    <script src="./data.js"  defer></script>
+    <script src="./shop.js" defer></script>   
 
 </body>
 </html>
