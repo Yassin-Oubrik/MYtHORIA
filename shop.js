@@ -24,6 +24,7 @@ panier_menu.addEventListener('click', () => {
 const x = document.getElementById('x')
 x.addEventListener('click', () => {
     panier.style.display = 'none'
+
 })
 // click sur btn add (event et increment)
 const btn = document.querySelectorAll('.add-cart')
@@ -53,6 +54,7 @@ if (!repet(id)){
 </div>
         `)
             panier.style.display = 'flex'
+            
         } 
     })
 }
@@ -65,10 +67,12 @@ affichage_panier.addEventListener('click', (e) => {
        paniervide()
     }
 });
-// si les article de panier == 0
+// si les article de panier == 0 et cache total
  function paniervide(){
             if (affichage_panier.children.length === 0) {
             panier.style.display = 'none'
+            document.getElementById('affichage_total').style.display='none'
+            document.getElementById('remove_all').style.display='none'
             return true
         }
  }
@@ -109,3 +113,39 @@ function repet(p) {
             }
     }
 }
+//afficher total
+    for (const element of btn) {
+        element.addEventListener('click',()=>{
+            if (!document.getElementById('total_p')) {
+            document.querySelector('#affichage_total').insertAdjacentHTML('beforeend',`
+                  <p id='total_p' style='font-weight: bold;font-size: 15px; color:#C8A96B'>
+                  total:
+                  <span id="total_number" style='margin-left:5px;color:#8B6BB8 ; font-size:12px'>0</span>
+                  </p>
+                   <button id="achetre" style="padding:0px 10px; border:1px solid #C3B8D2; border-radius:25px;background-color:#C8A96B;color:black">acheter</button>`)
+            document.querySelector('#affichage_total').insertAdjacentHTML('afterend',`
+                <button id='remove_all' style='cursor:pointer  ; margin-top:8px'>supprimer tous les article</button>
+                `)
+                removeAll()
+            }
+            document.querySelector('#affichage_total').style.display = 'flex'
+            document.getElementById('remove_all').style.display = 'block'
+        })
+    }
+
+//remove all
+function removeAll() {
+   const remove_all=document.getElementById('remove_all')
+   remove_all.addEventListener('click',(e)=>{
+    const rmvp= panier.querySelector('#affichage_panier')
+   rmvp.innerHTML=''
+    panier.style.display='none'
+    e.target.style.display='none'
+    document.querySelector('#affichage_total').style.display = 'none';
+    const span = document.querySelector('#panier-menu a  span')
+    inc =0
+    span.textContent= inc
+}) 
+}
+
+
