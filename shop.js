@@ -30,6 +30,12 @@ x.addEventListener('click', () => {
 const btn = document.querySelectorAll('.add-cart')
 let inc = 0
 const affichage_panier = document.querySelector('#affichage_panier')
+//local 
+let monpanier = JSON.parse(localStorage.getItem('pan')) || [];
+function sauvegarder() {
+    localStorage.setItem('pan', JSON.stringify(monpanier));
+}
+
 for (const element of btn) {
     element.addEventListener('click', () => {
         const id = element.parentElement.id
@@ -37,6 +43,12 @@ for (const element of btn) {
         if (!repet(id)) {
             const span = document.querySelector('#panier-menu a  span')
             span.innerHTML = `(${inc = inc + 1})`
+            // local
+            monpanier.push({
+                id: trouve.id,
+                quantite: 1
+            });
+            sauvegarder();
             affichage_panier.insertAdjacentHTML('afterbegin', `
 <div class='article_panier' id="${trouve.id}" style="display:flex; align-items:center; gap:15px; padding:10px">
     <img src="${trouve.image}" style="width:60px; height:90px; border-radius:6px;">
@@ -68,6 +80,11 @@ affichage_panier.addEventListener('click', (e) => {
         span.innerHTML = `(${inc = inc - Number(e.target.parentElement.querySelector('.quantite').textContent)})`
         paniervide()
         total()
+        // local
+        monpanier = monpanier.filter(
+            p => p.id != e.target.parentElement.id
+        );
+        sauvegarder();
     }
 });
 // si les article de panier == 0 et cache total
@@ -87,6 +104,13 @@ affichage_panier.addEventListener('click', (e) => {
         const span = document.querySelector('#panier-menu a  span')
         span.innerHTML = `(${inc = inc + 1})`
         total()
+        //local
+        const article = e.target.closest('.article_panier');
+        const produit = monpanier.find(p => p.id == article.id);
+        produit.quantite = Number(
+            article.querySelector('.quantite').textContent
+        );
+        sauvegarder();
     }
 });
 // moin et decreme,ter
@@ -95,9 +119,22 @@ affichage_panier.addEventListener('click', (e) => {
         e.target.nextElementSibling.textContent = Number(e.target.nextElementSibling.textContent) - 1;
         const span = document.querySelector('#panier-menu a  span')
         span.innerHTML = `(${inc = inc - 1})`
+
+        // local
+        const article = e.target.closest('.article_panier');
+        const produit = monpanier.find(p => p.id == article.id);
+        const quantite = Number(
+            article.querySelector('.quantite').textContent
+        );
+        if (quantite === 0) {
+            monpanier = monpanier.filter(p => p.id != article.id);
+        } else {
+            produit.quantite = quantite;
+        }
         removequantite()
         paniervide()
         total()
+        sauvegarder();
     }
 });
 //remove si quantite ===0
@@ -129,7 +166,7 @@ for (const element of btn) {
                   <span id="total_number" style='margin-left:5px;color:#8B6BB8 ; font-size:12px'>0</span>
                   </p>
                    <button id="acheter" style="padding:0px 10px; border:1px solid #C3B8D2; border-radius:25px;background-color:#C8A96B;color:black">acheter</button>`)
-            document.querySelector('#affichage_total').insertAdjacentHTML('afterend', `
+                  document.querySelector('#affichage_total').insertAdjacentHTML('afterend', `
                 <button id='remove_all' style='cursor:pointer  ; margin-top:8px'>supprimer tous les article</button>
                 `)
             removeAll()
@@ -153,33 +190,81 @@ function removeAll() {
         document.querySelector('#affichage_total').style.display = 'none';
         const span = document.querySelector('#panier-menu a  span')
         inc = 0
-        span.textContent = inc 
+        span.textContent = inc
         document.querySelector('#total_number').textContent = 0;
+        // local
+        monpanier = [];
+        sauvegarder();
     })
 }
 //valider
 function acheter() {
-            const achete = document.getElementById('acheter')
-            achete.addEventListener('click', () => {
-                if (confirm("Voulez-vous confirmer?")) {
-                    alert("Commande valide ");
-                    document.getElementById('remove_all').click()
-                }
-            })
+    const achete = document.getElementById('acheter')
+    achete.addEventListener('click', () => {
+        if (confirm("Voulez-vous confirmer?")) {
+            alert("Commande valide ");
+            document.getElementById('remove_all').click()
+        }
+    })
 }
 //total
 function total() {
-       const article_panier = document.querySelectorAll('.article_panier')
-       let total = 0
-       for (const element of article_panier) {
-          const boos= boosters.find(e=>e.id == element.id)
-           total =total + (boos.price * Number(element.querySelector('.quantite').textContent))
-       }
-       document.querySelector('#total_number').textContent=total
+    const article_panier = document.querySelectorAll('.article_panier')
+    let total = 0
+    for (const element of article_panier) {
+        const boos = boosters.find(e => e.id == element.id)
+        total = total + (boos.price * Number(element.querySelector('.quantite').textContent))
+    }
+    document.querySelector('#total_number').textContent = total
+}
+//affiche local
+function reafficher() {
+    inc = 0;
+    for (const element of monpanier) {
+        const trouve = boosters.find(e => e.id == element.id)
+        if (!trouve) {
+        affichage_panier.insertAdjacentHTML('afterbegin', `
+<div class='article_panier' id="${trouve.id}" style="display:flex; align-items:center; gap:15px; padding:10px">
+    <img src="${trouve.image}" style="width:60px; height:90px; border-radius:6px;">
+    <div class="element_create" style="flex:1; font-size:14px;">
+        <p class="name" style="margin:3px ;">${trouve.name}</p>
+        <p class="number" style="margin:3px ;"> cards${trouve.nombreCartes} </p>
+        <p class="price" style="margin:3px ; color:#8B6BB8;">${trouve.price} DH</p>
+        <div style="display:flex; align-items:center; gap:12px; margin-top:6px;">
+            <span class="moin" style="cursor:pointer;">-</span>
+            <span class='quantite'>${element.quantite}</span>
+            <span class="plus" style="cursor:pointer;">+</span>
+        </div>
+    </div>
+    <button class="btn_remove" style=" cursor:pointer;">x</button>
+</div>
+        `)
+        inc = inc + element.quantite
+        const span = document.querySelector('#panier-menu a span');
+        span.textContent = `(${inc})`;
+        if (!document.getElementById('total_p')) {
+            document.querySelector('#affichage_total').insertAdjacentHTML('beforeend', `
+                  <p id='total_p' style='font-weight: bold;font-size: 15px; color:#C8A96B'>
+                  total:
+                  <span id="total_number" style='margin-left:5px;color:#8B6BB8 ; font-size:12px'>0</span>
+                  </p>
+                   <button id="acheter" style="padding:0px 10px; border:1px solid #C3B8D2; border-radius:25px;background-color:#C8A96B;color:black">acheter</button>`)
+            document.querySelector('#affichage_total').insertAdjacentHTML('afterend', `
+                <button id='remove_all' style='cursor:pointer  ; margin-top:8px'>supprimer tous les article</button>
+                `);
+
+            removeAll();
+            acheter();
+        }
+    }}
+    if (monpanier.length > 0) {
+        panier.style.display = 'flex';
+        document.getElementById('text_aucun').style.display = 'none';
+        document.getElementById('affichage_total').style.display = 'flex';
+        document.getElementById('remove_all').style.display = 'block';
+        total();
+    }
+
 }
 
-
-
-
-
-
+reafficher();
