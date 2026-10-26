@@ -8,7 +8,7 @@ boosters.forEach((b) => {
             <p>${b.description}</p>
             <p>Price: ${b.price} DH</p>
             <p>Number of cards: ${b.nombreCartes}</p>
-            <p>Categories: ${b.categories.join(", ")}</p>
+            <p>Categories: ${b.categories.join(",")}</p>
             <button class="add-cart">Add to Cart</button>
         </article>
     `;
@@ -142,7 +142,7 @@ function removequantite() {
     const quant = document.querySelectorAll('.quantite');
     for (const element of quant) {
         if (element.textContent == 0) {
-            element.parentElement.parentElement.parentElement.remove();
+            element.closest('.article_panier').remove();
         }
     }
 }
@@ -197,13 +197,18 @@ function removeAll() {
         sauvegarder();
     })
 }
+// local opening
+let monbooster = JSON.parse(localStorage.getItem('bos')) || []
 //valider
 function acheter() {
     const achete = document.getElementById('acheter')
     achete.addEventListener('click', () => {
         if (confirm("Voulez-vous confirmer?")) {
-            alert("Commande valide ");
+            alert("Commande valide ")
+            monbooster = [...monbooster,...monpanier]
+            savebos()
             document.getElementById('remove_all').click()
+            sauvegarder();
         }
     })
 }
@@ -222,7 +227,7 @@ function reafficher() {
     inc = 0;
     for (const element of monpanier) {
         const trouve = boosters.find(e => e.id == element.id)
-        if (!trouve) {
+       if (trouve) {
         affichage_panier.insertAdjacentHTML('afterbegin', `
 <div class='article_panier' id="${trouve.id}" style="display:flex; align-items:center; gap:15px; padding:10px">
     <img src="${trouve.image}" style="width:60px; height:90px; border-radius:6px;">
@@ -255,8 +260,8 @@ function reafficher() {
 
             removeAll();
             acheter();
-        }
-    }}
+        
+    }}}
     if (monpanier.length > 0) {
         panier.style.display = 'flex';
         document.getElementById('text_aucun').style.display = 'none';
@@ -268,3 +273,8 @@ function reafficher() {
 }
 
 reafficher();
+
+// localopening
+function savebos() {
+    localStorage.setItem('bos', JSON.stringify(monbooster))
+}

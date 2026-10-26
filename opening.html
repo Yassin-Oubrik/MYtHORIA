@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mythoria - Opening Chamber</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body>
+
+    <header class="menu">
+        <nav>
+            <a href="index.html" class="logo">MYTHORIA</a>
+
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="opening.html">Opening</a></li>
+                <li><a href="grimoire.html">Grimoire</a></li>
+                <li><a href="deck.html">My Deck</a></li>
+                <li id="panier-menu"><a>Cart<span></span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="mt-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
+            <div>
+                <img src="images/imgPaning.png" alt="Mythoria Opening Chamber"
+                    class="w-full h-96 object-cover rounded-xl">
+            </div>
+
+            <div class="text-center">
+                <p class="mb-3 text-xs   text-[#9069bd]">
+                    " The Ancient Vault "
+                </p>
+
+                <h2 class="text-3xl font-bold text-[#C8A96B]">
+                    The Chamber Awaits
+                </h2>
+
+                <p class="mx-auto mt-4 max-w-lg  text-gray-400">
+                    Behind these ancient walls lie forgotten treasures
+                    and legendary cards waiting to be discovered.
+                </p>
+
+                <p class="mt-4 text-sm italic ">
+                    "Every chest holds a new legend."
+                </p>
+            </div>
+
+        </div>
+
+        <a href="shop.html" class="mt-4 block  rounded-lg bg-[#8B6BB8] p-3 text-center font-bold text-white">
+            Explore the Shop
+        </a>
+
+        <div id="opening" class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        </div>
+        <div id="animation" class="py-6">
+            <p  id="anim" class="text-1xl font-bold text-[#9069bd] text-center">
+                Opening the Booster...
+            </p>
+        </div>
+
+        <div id="result" class="grid grid-cols-2 gap-4 md:grid-cols-3"></div>
+
+        <p id="message" class="mt-4 text-center text-sm">
+            No boosters available
+        </p>
+
+    </section>
+    <footer>
+        <p>MYTHORIA</p>
+        <p>Forge your legend.</p>
+        <p>&copy; 2026 Mythoria. All rights reserved.</p>
+    </footer>
+    <script src="./data.js" defer></script>
+    <script src="./opening.js" defer></script>
+</body>
+
+</html>
