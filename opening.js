@@ -1,20 +1,20 @@
-let monbooster =JSON.parse(localStorage.getItem('bos')) || []
+let monbooster = JSON.parse(localStorage.getItem('bos')) || []
 const afficher_opening = document.getElementById('opening')
-for (const element of monbooster){
+for (const element of monbooster) {
     //information de booster pour afficher les info
-    const info_booster = boosters.find(e=>e.id === element.id)
+    const info_booster = boosters.find(e => e.id === element.id)
     //pour ajouter quantite a la place de card
     const article = document.querySelectorAll('#opening div')
-    let res =false
-        for (const e of article) {
+    let res = false
+    for (const e of article) {
         if (e.id == element.id) {
-            e.querySelector('#Qty').textContent = Number(e.querySelector('#Qty').textContent)+element.quantite
-             res =true
+            e.querySelector('#Qty').textContent = Number(e.querySelector('#Qty').textContent) + element.quantite
+            res = true
         }
-        }
-        // si aucun article respect la condition ajouter nevaux
-        if(res == false){
-    afficher_opening.insertAdjacentHTML('beforeend',`
+    }
+    // si aucun article respect la condition ajouter nevaux
+    if (res == false) {
+        afficher_opening.insertAdjacentHTML('beforeend', `
         <div id="${info_booster.id}" class="rounded-lg bg-[#241A35] p-4">
             <img src="${info_booster.image}" alt="${info_booster.name}"
                 class="mb-4 h-48 w-full rounded-md object-cover">
@@ -31,12 +31,27 @@ for (const element of monbooster){
         </div>
     `)
 
-        }
     }
-    //message aucun
-if (afficher_opening.children.length === 0) {
-    document.getElementById('message').style.display='block'
-}else{
-    document.getElementById('message').style.display='none'
 }
-    //   localStorage.removeItem('bos');
+//message aucun
+if (afficher_opening.children.length === 0) {
+    document.getElementById('message').style.display = 'block'
+} else {
+    document.getElementById('message').style.display = 'none'
+}
+
+
+// Animation
+const animation = document.getElementById('animation')
+const btn = document.querySelectorAll('#btn_open')
+for (const element of btn) {
+element.addEventListener('click', () => {
+        animation.style.display = 'block'
+        setTimeout(() => {
+            animation.style.display = 'none'
+        }, 3000)
+    })
+}
+
+
+//   localStorage.removeItem('bos');

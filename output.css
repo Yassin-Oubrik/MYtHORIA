@@ -1312,9 +1312,6 @@
   .py-6 {
     padding-block: calc(var(--spacing) * 6);
   }
-  .py-8 {
-    padding-block: calc(var(--spacing) * 8);
-  }
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
   }
@@ -1522,9 +1519,6 @@
   }
   .text-\(--color-text-toolbar-action\) {
     color: var(--color-text-toolbar-action);
-  }
-  .text-\[\#8B6BB8\] {
-    color: #8B6BB8;
   }
   .text-\[\#9069bd\] {
     color: #9069bd;
@@ -2283,9 +2277,6 @@
     }
   }
   @media (width >= 64rem) {
-    .lg\:grid-cols-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
     .lg\:grid-cols-4 {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
@@ -2572,6 +2563,26 @@ footer p:first-child {
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
   color: #E9E2D4;
+}
+#animation {
+  display: none;
+  padding: 100px;
+}
+#animation p {
+  animation: anim 2s infinite;
+}
+@keyframes anim {
+  0%,100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.2;
+  }
+  70% {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
 }
 @property --tw-translate-x {
   syntax: "*";
