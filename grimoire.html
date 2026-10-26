@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+
+
+<body>
+
+    <!-- Navbar -->
+    <header class="menu">
+        <nav>
+            <a href="index.html" class="logo">MYTHORIA</a>
+
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="opening.html">Opening</a></li>
+                <li><a href="grimoire.html">Grimoire</a></li>
+                <li><a href="deck.html">My Deck</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<section id="grimoire"
+    class="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-2 items-center p-3">
+
+    <!-- Filters -->
+    <div id="div_left" class="w-full max-w-[240px] mx-auto">
+        <h2 class="text-center text-2xl font-bold mb-6">
+            My Collection
+        </h2>
+        <div class="mb-4">
+            <label for="filter_type" class="block mb-2">Filter by type</label>
+            <select id="filter_type" class="w-full p-2 text-sm rounded-lg">
+                <option value="all" class="bg-[#21182B]">All types</option>
+                <option value="Serviteurs de la Lumière" class="bg-[#21182B]">Serviteurs de la Lumière</option>
+                <option value="Serviteurs des Ténèbres" class="bg-[#21182B]">Serviteurs des Ténèbres</option>
+                <option value="Minions" class="bg-[#21182B]">Minions</option>
+                <option value="Spells" class="bg-[#21182B]">Spells</option>
+            </select>
+        </div>
+
+        <div class="mb-4">
+            <label for="filter_rarity" class="block mb-2">Filter by rarity</label>
+            <select id="filter_rarity" class="w-full p-2 text-sm rounded-lg">
+                <option value="all" class="bg-[#21182B]">All rarities</option>
+                <option value="Common" class="bg-[#21182B]">Common</option>
+                <option value="Rare" class="bg-[#21182B]">Rare</option>
+                <option value="Epic" class="bg-[#21182B]">Epic</option>
+                <option value="Legendary" class="bg-[#21182B]">Legendary</option>
+            </select>
+        </div>
+    </div>
+    <!-- Book -->
+    <div id="book_img "
+        class=" h-[95vh]  min-h-[450px] bg-[url('/images/book1.png')] bg-no-repeat bg-center rounded-2xl flex ">
+        <div id="partie1" class="w-[50%] h-[100%]  p-3 grid grid-cols-1 sm:grid-cols-[1fr_1fr_1fr] gap-2 overflow-y-auto"></div>
+        <div id="partie2" class="w-[50%] h-[100%]  p-3 flex flex-col items-center gap-2 text-white "></div></div>
+    </div>
+</section>
+    <script src="grimoire.js"></script>
+    <script src="data.js"></script>
+</body>
+
+</html>
