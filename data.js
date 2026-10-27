@@ -1,31 +1,3 @@
-
-const categories = [
-  {
-    id: 1,
-    name: "Heroes",
-    description: "Meet legendary warriors.",
-    image: "images/img6.png"
-  },
-  {
-    id: 2,
-    name: "Monsters",
-    description: "Discover creatures of darkness.",
-    image: "images/img5.jpg"
-  },
-  {
-    id: 3,
-    name: "Minions",
-    description: "Find loyal companions.",
-    image: "images/im4.jpg"
-  },
-  {
-    id: 4,
-    name: "Spells",
-    description: "Master powerful magic.",
-    image: "images/img3.jpg"
-  }
-];
-
 const boosters = [
   {
     id: 1,
@@ -105,7 +77,8 @@ const cards = [
     image: "images/img13.png",
     description: "A master of forgotten spells."
   }
-];const card_opening = [
+];
+const card_opening = [
     {
         id: 1,
         name: "The Eternal Knight",
@@ -257,7 +230,7 @@ const cards = [
         rarity: "Common",
         power: 35,
         description: "Un sort protecteur qui crée une barrière magique autour d'un allié.",
-        image: "images/img26.jpg"
+        image: "images/img3.jpg"
     },
     {
         id: 18,
@@ -266,7 +239,7 @@ const cards = [
         rarity: "Rare",
         power: 72,
         description: "Un assassin furtif qui frappe ses cibles avant même qu'elles ne le remarquent.",
-        image: "images/img27.jpg"
+        image: "images/img4.jpg"
     },
     {
         id: 19,
@@ -275,7 +248,7 @@ const cards = [
         rarity: "Epic",
         power: 86,
         description: "Un faucheur macabre qui manipule les os et répand la terreur parmi ses ennemis.",
-        image: "images/img28.jpg"
+        image: "images/img5.jpg"
     },
     {
         id: 20,
@@ -284,6 +257,6 @@ const cards = [
         rarity: "Rare",
         power: 70,
         description: "Un sort céleste qui fait tomber une pluie d'étoiles sur les adversaires.",
-        image: "images/img29.jpg"
+        image: "images/img6.jpg"
     }
 ];

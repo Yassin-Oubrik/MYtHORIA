@@ -1,15 +1,5 @@
-const categorie = document.querySelector(' #categories #cards');
 const booster = document.querySelector('#boosters .cards');
 const legend = document.querySelector('#legend .cards');
-categories.forEach((c) => {
-    categorie.innerHTML += `
-        <article>
-            <img src="${c.image}" alt="${c.name}">
-            <h3>${c.name}</h3>
-            <p>${c.description}</p> 
-        </article>
-    `;
-});
 boosters.forEach((c)=>{
     booster.innerHTML+=`
     <article>

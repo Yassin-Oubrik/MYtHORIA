@@ -12,7 +12,6 @@ for (const element of e) {
             <img src="${element.image}" alt="${element.name}">
             <h3 class='text-center'>${element.name}</h3>
             <p class='text-center'>${element.rarity}</p>
-
     </article>
     `
 }}
@@ -25,15 +24,16 @@ for (const element of article) {
     element.addEventListener('click', () => {
         const trouve = moncard.find(e => e.id === Number(element.id))
         partie2.innerHTML = `
-        <div id='${trouve.id}'>
+
             <img src="${trouve.image}" alt="${trouve.name}" class="w-[80%]  max-h-[70%]  rounded-2xl ">
             <h3 class='text-center font-bold text-xl text-[#C8A96B]'>${trouve.name}</h3>
             <p class='text-center font-bold text-sm text-white'>${trouve.description}</p>
             <p class='text-center font-bold text-white'>Type: ${trouve.type}</p>
             <p class='text-center font-bold text-[#C8A96B]'>Rarity: ${trouve.rarity}</p>
-            <p class='text-center font-bold text-[#8B6BB8]'>Power: ${trouve.power} <button id='btn_deck' class="text-[#C8A96B] ml-1 border border-[1px solid black] px-2 bg-[#8B6BB8] hover:bg-[#E9E2D4]">add</button></p>
-         </div>
+            <p id="${trouve.id}" class='text-center font-bold text-[#8B6BB8]'>Power: ${trouve.power} <button id='btn_deck' class="text-[#C8A96B] ml-1 border border-[1px solid black] px-2 bg-[#8B6BB8] hover:bg-[#E9E2D4]">add</button></p>
+
             `
+            add_btn()
     })
 }}
 grand_carte()
@@ -73,10 +73,10 @@ function add_btn() {
     const btn_deck =partie2.querySelector('#btn_deck')
     btn_deck.addEventListener('click', ()=>{
         if (confirm('voulez vous choisir cette carte ?')) {
-            id=btn_deck.parentElement.parentElement.id
+            const id=btn_deck.parentElement.id
             if (moncolluction.includes(id)) {
                 alert('carte existe deja')
-            } else if(moncolluction.length >20) {
+            } else if(moncolluction.length >=20) {
                 alert('deck et complet')
             }else{
                 alert('carte ajouter avec succes')
@@ -87,4 +87,4 @@ function add_btn() {
         }
     })
 }
-add_btn()
+
