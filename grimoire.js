@@ -82,6 +82,7 @@ function add_btn() {
                 alert('carte ajouter avec succes')
                 moncolluction.push(id)
                 save()
+                
             }
             
         }
