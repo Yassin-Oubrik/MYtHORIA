@@ -130,5 +130,25 @@ footer p:first-child {
     @apply text-[#E9E2D4] font-bold text-2xl flex justify-center items-center flex-col;
 }
 
-
-
+#animation {
+    display: none;
+    padding: 100px;
+}
+#animation p{
+    animation : anim 2s infinite;
+    
+}
+@keyframes  anim {
+    0%,100%{
+        transform: scale(1);
+    }
+    50%{
+        transform : scale(2);
+        opacity: 0.2;
+    }
+     70%{
+        transform : rotate(180deg);
+        opacity: 1;
+    }
+    
+}

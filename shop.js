@@ -278,3 +278,4 @@ reafficher();
 function savebos() {
     localStorage.setItem('bos', JSON.stringify(monbooster))
 }
+//   localStorage.removeItem('pan');
