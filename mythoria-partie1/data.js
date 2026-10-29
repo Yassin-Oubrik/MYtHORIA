@@ -230,7 +230,7 @@ const card_opening = [
         rarity: "Common",
         power: 35,
         description: "Un sort protecteur qui crée une barrière magique autour d'un allié.",
-        image: "images/img3.jpg"
+        image: "images/img29.jpg"
     },
     {
         id: 18,
@@ -239,7 +239,7 @@ const card_opening = [
         rarity: "Rare",
         power: 72,
         description: "Un assassin furtif qui frappe ses cibles avant même qu'elles ne le remarquent.",
-        image: "images/img4.jpg"
+        image: "images/img26.jpg"
     },
     {
         id: 19,
@@ -248,7 +248,7 @@ const card_opening = [
         rarity: "Epic",
         power: 86,
         description: "Un faucheur macabre qui manipule les os et répand la terreur parmi ses ennemis.",
-        image: "images/img5.jpg"
+        image: "images/img27.jpg"
     },
     {
         id: 20,
@@ -257,6 +257,6 @@ const card_opening = [
         rarity: "Rare",
         power: 70,
         description: "Un sort céleste qui fait tomber une pluie d'étoiles sur les adversaires.",
-        image: "images/img6.jpg"
+        image: "images/img30.png"
     }
 ];

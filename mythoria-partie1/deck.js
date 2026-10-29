@@ -18,7 +18,7 @@ for (const element of moncolluction) {
     } 
 }
 
-
+function statistique() {
 let power_total = 0
 let common_total = 0
 let legendary_total = 0
@@ -38,16 +38,18 @@ for (const element of moncolluction) {
 document.getElementById('power_total').textContent=power_total
 document.getElementById('common_total').textContent=common_total
 document.getElementById('legendary_total').textContent=legendary_total
-
+}
+statistique()
 
 //remove
 function remove() {
    const btn_remove= document.querySelectorAll('#remove')
    for (const element of btn_remove ) {
-    element.addEventListener('click' ,(e)=>{
-        e.target.parentElement.remove()
-        moncolluction = moncolluction.filter(a=>a != e.target.parentElement.id )
+    element.addEventListener('click' ,()=>{
+        element.parentElement.remove()
+        moncolluction = moncolluction.filter(a=>a != element.parentElement.id )
         localStorage.setItem('col', JSON.stringify(moncolluction))
+        statistique()
     })
    }
 }
