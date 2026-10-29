@@ -30,15 +30,15 @@ body {
 
 #hero {
     @apply w-full min-h-screen p-0 m-0;
-    background-image: url("images/mytho1.png");
+    background-image: url("mythoria-partie1/images/mytho1.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 /* Sections */
-section {
-    @apply px-6 py-10;
-}
+    section {
+        @apply px-6 py-10;
+    }
 
 /* Buttons */
 #button {

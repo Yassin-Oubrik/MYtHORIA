@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="../output.css">
+</head>
+<body>
+        <!-- Navbar -->
+    <header class="menu">
+        <nav>
+            <a href="index.html" class="logo">MYTHORIA</a>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="opening.html">Opening</a></li>
+                <li><a href="grimoire.html">Grimoire</a></li>
+                <li><a href="deck.html">My Deck</a></li>
+                <li><a href="../mythoria-partie2/arena.html">arena</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<section>
+    <div id="statistiques" class="p-5">
+    <h2 class="text-xl font-bold mb-3">Statistiques du Deck</h2>
+    <p>Puissance totale : <span id="power_total">0</span></p>
+    <p>Cartes communes : <span id="common_total">0</span></p>
+    <p>Cartes légendaires : <span id="legendary_total">0</span></p>
+    </div>
+   <div id="deck" class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
+   </div>
+    
+</section>
+        <footer>
+        <p>MYTHORIA</p>
+        <p>Forge your legend.</p>
+        <p>&copy; 2026 Mythoria. All rights reserved.</p>
+    </footer>
+    <script src="deck.js"></script>
+    <script src="data.js"></script>
+</body>
+</html>

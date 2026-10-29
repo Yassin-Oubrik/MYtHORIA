@@ -59,7 +59,7 @@ element.addEventListener('click', () => {
         animation.style.display = 'block'
         document.getElementById('result').innerHTML=''
         setTimeout(() => {
-            animation.style.display = 'none'
+            animation.style.display ='none'
             afficher_card()
         }, 3000)
     })
