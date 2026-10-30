@@ -4,7 +4,7 @@ name: Deploy MYTHORIA
 on:
   push:
     branches:
-      - main
+      - yassine
   workflow_dispatch:
 
 permissions:
