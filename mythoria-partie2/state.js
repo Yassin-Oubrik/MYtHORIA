@@ -1,4 +1,4 @@
-// export let start = false
+export let start = false
 // function role (){
 // const role =Math.random()
 // if (role >=0.5) {

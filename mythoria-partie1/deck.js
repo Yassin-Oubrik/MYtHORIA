@@ -1,4 +1,6 @@
 let moncolluction = JSON.parse(localStorage.getItem('col')) || []
+let moncard = JSON.parse(localStorage.getItem('card')) || []
+
 const deck = document.getElementById('deck')
 // console.log('col:', moncolluction)
 // console.log('card:', moncard)
@@ -48,11 +50,11 @@ function remove() {
         element.parentElement.remove()
         moncolluction = moncolluction.filter(a=>a != element.parentElement.id )
         localStorage.setItem('col', JSON.stringify(moncolluction))
+        const trouve = card_opening.find(e=>e.id === Number(element.parentElement.id))
+        moncard.push(trouve)
+        localStorage.setItem('card',JSON.stringify(moncard))
         statistique()
     })
    }
 }
 remove()
-console.log(localStorage.getItem('col'));
-console.log(card_opening);
-console.log(document.getElementById('deck'));
