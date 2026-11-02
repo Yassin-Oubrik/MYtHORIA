@@ -1,4 +1,15 @@
-export let start = false
+ export const player ={
+      PlayerName : "",
+      start : false,
+      role :''
+ } 
+// export let playerSide = "";
+// export let currentTurn = "";
+// export function setStart(value) {
+//     start = value;
+// }
+
+
 // function role (){
 // const role =Math.random()
 // if (role >=0.5) {

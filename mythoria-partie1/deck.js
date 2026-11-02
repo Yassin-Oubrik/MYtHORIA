@@ -48,9 +48,9 @@ function remove() {
    for (const element of btn_remove ) {
     element.addEventListener('click' ,()=>{
         element.parentElement.remove()
+        const trouve = card_opening.find(e=>e.id === Number(element.parentElement.id))
         moncolluction = moncolluction.filter(a=>a != element.parentElement.id )
         localStorage.setItem('col', JSON.stringify(moncolluction))
-        const trouve = card_opening.find(e=>e.id === Number(element.parentElement.id))
         moncard.push(trouve)
         localStorage.setItem('card',JSON.stringify(moncard))
         statistique()

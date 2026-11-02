@@ -72,6 +72,16 @@ for (const element of btn) {
         }
     })
 }
+// repetitation
+function repet(e) {
+    const repet = affichage_panier.querySelectorAll('.article_panier');
+    for (const element of repet) {
+        if (element.id === e) {
+            alert('cet element existe sure le panier');
+            return true;
+        }
+    }
+}
 // btnRemove
 affichage_panier.addEventListener('click', (e) => {
     if (e.target.classList.contains('btn_remove')) {
@@ -146,16 +156,7 @@ function removequantite() {
         }
     }
 }
-// repetitation
-function repet(p) {
-    const repet = affichage_panier.querySelectorAll('.article_panier');
-    for (const element of repet) {
-        if (element.id === p) {
-            alert('cet element existe sure le panier');
-            return true;
-        }
-    }
-}
+
 //afficher total
 for (const element of btn) {
     element.addEventListener('click', () => {
