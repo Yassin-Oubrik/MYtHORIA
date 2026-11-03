@@ -1660,6 +1660,9 @@
   .text-\[\#E9E2D4\] {
     color: #E9E2D4;
   }
+  .text-\[black\] {
+    color: black;
+  }
   .text-\[var\(--color-text\)\] {
     color: var(--color-text);
   }

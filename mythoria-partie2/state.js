@@ -1,8 +1,15 @@
  export const player ={
-      PlayerName : "",
+     //  PlayerName : "",
       start : false,
       role :''
  } 
+ export const boot ={
+     role :''
+ }
+
+
+
+
 // export let playerSide = "";
 // export let currentTurn = "";
 // export function setStart(value) {

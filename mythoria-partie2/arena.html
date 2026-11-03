@@ -15,20 +15,19 @@
         <a href="../mythoria-partie1/deck.html" class=" text-xl block w-[70px] font-bold border-1 border-amber-50 rounded-2xl text-center bg-[#C8A96B]">back</a>
      </div>
     <main class="lg:w-[45%] flex flex-col mx-auto ">
-
         <section class="grid grid-cols-[1fr_0.3fr] gap-3">
             <!-- partie left -->
             <div id="partie-left" class="flex flex-col gap-2">
-                <div class=" grid grid-cols-5 gap-1">
+                <div id="cardboot" class=" grid grid-cols-5 gap-1">
                     <article class="h-25 border-3 border-[#C8A96B] rounded-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)]"></article>
                     <article class="h-25  border-3 border-[#C8A96B] rounder-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)]"></article>
                     <article class="h-25  border-3 border-[#C8A96B] rounder-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)]"></article>
                     <article class="h-25  border-3 border-[#C8A96B] rounder-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)]"></article>
                     <article class="h-25  border-3 border-[#C8A96B] rounder-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)]"></article>
                 </div>
-                <div class="h-5  rounded-[20px] bg-gray-500 mx-1">
+                <div id="role_boot" class="h-5  rounded-[20px] bg-gray-500 mx-1 text-[black] text-center">
                 </div>
-                <div class=" grid grid-cols-5 ">
+                <div id="card_jouer_a" class=" grid grid-cols-5 ">
                     <article class="h-20  border-1"></article>
                     <article class="h-20 border-1"></article>
                     <article class="h-20 border-1"></article>
@@ -46,7 +45,7 @@
                     <div class="text-[50px] text-amber-400">BOOT</div>
                 </div>
 
-                <div class="grid grid-cols-5">
+                <div id='card_jouer_b'  class="grid grid-cols-5">
                     <article class="h-20 border-1"></article>
                     <article class="h-20 border-1"></article>
                     <article class="h-20 border-1"></article>
@@ -59,9 +58,9 @@
                     <article class="h-20 border-1"></article>
                 </div>
                 <!-- role de joueur -->
-                <div id="role" class="h-5 rounded-[20px] bg-gray-500 mx-1">
+                <div id="role_player" class="h-5 rounded-[20px] bg-gray-500 mx-1 text-[black] text-center">
                 </div>
-                <div id="affichage_add" class=" grid grid-cols-5 gap-1">
+                <div id="affichage_card" class=" grid grid-cols-5 gap-1">
                     <article class="h-25 id='1' border-3  border-[#C8A96B] rounded-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)]"></article>
                     <article class="h-25 id='2' border-3  border-[#C8A96B] rounded-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)]"></article>
                     <article class="h-25 id='3' border-3  border-[#C8A96B] rounded-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)]"></article>
@@ -116,19 +115,21 @@
             required
             minlength="2"
         >
-        <button type="submit">Confirm</button>
+        <button type="submit" >Confirm</button>
     </form>
     </dialog>
-    <!-- <script type="module" src="../mythoria-partie1/data.js" defer></script> -->
+    <dialog id="dialog1" class="m-auto rounded-2xl p-6 bg-amber-100 ">
+        <div>your role is <span id="role_dialog"></span></div>
+    </dialog>
+    <script type="module" src="../mythoria-partie1/data.js" defer></script>
     <script type="module" src="../mythoria-partie2/ui.js" defer></script>
     <!-- <script type="module" src="../mythoria-partie2/cards.js" defer></script>
     <script type="module" src="../mythoria-partie2/combat.js" defer></script> -->
     <script type="module" src="../mythoria-partie2/main.js" defer></script>
-    <!-- <script type="module" src="../mythoria-partie2/opponent.js" defer></script>
-    <script type="module" src="../mythoria-partie2/state.js" defer></script>
+    <script type="module" src="../mythoria-partie2/opponent.js" defer></script>
+    <!-- <script type="module" src="../mythoria-partie2/state.js" defer></script>
     <script type="module" src="../mythoria-partie2/turns.js" defer></script>
     <script type="module" src="../mythoria-partie2/utils.js" defer></script>
     <script type="module" src="../mythoria-partie2/cards.json" defer></script> -->
 </body>
-
 </html>
