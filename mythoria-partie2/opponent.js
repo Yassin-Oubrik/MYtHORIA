@@ -33,7 +33,7 @@ export function role() {
     setTimeout(() => {
         dialog.close();
         role_dialog.innerHTML ='';
-        affichage_card()
+        // affichage_card()
     }, 3000);
 }
 //les role apre refresh

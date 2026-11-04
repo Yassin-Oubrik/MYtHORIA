@@ -63,8 +63,6 @@ h2 {
 #legendary-cards .cards {
     @apply lg:grid-cols-3;
 }
-
-
 article {
     @apply bg-[#241A35] p-4 rounded-lg;
 }
