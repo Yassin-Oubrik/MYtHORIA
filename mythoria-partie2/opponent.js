@@ -1,5 +1,4 @@
 import { player, boot } from "./state.js";
-import { affichage_card } from "./ui.js";
 export function role() {
 
     player.role = localStorage.getItem('playerrole');

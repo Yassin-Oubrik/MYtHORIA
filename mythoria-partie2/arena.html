@@ -22,54 +22,58 @@
             <div id="partie-left" class="flex flex-col gap-2">
                 <div id="cardboot" class=" grid grid-cols-5 gap-1">
                     <article
-                        class="h-25 border-3 border-[#C8A96B] rounded-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)]">
+                        class="h-25 border-3 border-[#C8A96B] rounded-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)] overflow-hidden">
                     </article>
                     <article
-                        class="h-25  border-3 border-[#C8A96B] rounder-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)]">
+                        class="h-25  border-3 border-[#C8A96B] rounder-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)] overflow-hidden">
                     </article>
                     <article
-                        class="h-25  border-3 border-[#C8A96B] rounder-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)]">
+                        class="h-25  border-3 border-[#C8A96B] rounder-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)] overflow-hidden">
                     </article>
                     <article
-                        class="h-25  border-3 border-[#C8A96B] rounder-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)]">
+                        class="h-25  border-3 border-[#C8A96B] rounder-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)] overflow-hidden">
                     </article>
                     <article
-                        class="h-25  border-3 border-[#C8A96B] rounder-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)]">
+                        class="h-25  border-3 border-[#C8A96B] rounder-[20px] shadow-[5px_0px_2px_2px_rgba(200,169,107,0.5)] overflow-hidden">
                     </article>
                 </div>
-                <div id="role_boot" class="h-5  rounded-[20px] bg-gray-500 mx-1 text-[black] text-center">
+                <div id="role_boot" class="h-5  rounded-[20px] bg-black mx-1 text-[#C8A96B] text-center">
                 </div>
-                <div id="card_jouer_a" class=" grid grid-cols-5 ">
-                    <article class="h-20  border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
+                <div id="card_boot_defense" class=" grid grid-cols-5 ">
+                    <article class="h-20  border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
                 </div>
-                <div class="h-15 bg-[#100D18] border-1 rounded-[20px] flex  items-center justify-around">
-                    <div id="psedo" class="text-[50px] text-amber-400"></div>
+                <div id='card_boot_attack' class="grid grid-cols-5">
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                </div>
+                <div class="h-15 bg-[#100D18]  rounded-[20px] flex  items-center justify-around">
+                    <div id="psedo" class="text-[50px] text-[#C8A96B]"></div>
                     <div class="text-[50px] text-red-500">VS</div>
-                    <div class="text-[50px] text-amber-400">BOOT</div>
+                    <div class="text-[50px] text-[#C8A96B]">BOOT</div>
                 </div>
-                <div id='card_jouer_b' class="grid grid-cols-5">
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
-                    <article class="h-20 border-1"></article>
+                <div id='card_jouer_attack' class="grid grid-cols-5">
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                </div>
+                <div  id='card_jouer_defense' class="grid grid-cols-5">
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
+                    <article class="h-20 border-1 overflow-hidden "></article>
                 </div>
                 <!-- role de joueur -->
-                <div id="role_player" class="h-5 rounded-[20px] bg-gray-500 mx-1 text-[black] text-center">
+                <div id="role_player" class="h-6 rounded-[20px] bg-black mx-1 text-[#C8A96B] text-center">
                 </div>
                 <div id="affichage_card" class=" grid grid-cols-5 gap-1">
                     <article id='1'
@@ -109,7 +113,7 @@
                         class="h-10 w-[50%] mx-auto border-3 rounded-[20px] text-center pt-1 bg-[#C8A96B] text-black font-bold cursor-pointer">
                         add
                     </div>
-                    <div id="add"
+                    <div id="turn"
                         class="h-10 w-[50%] mx-auto border-3 rounded-[20px] text-center pt-1 bg-[#8B6BB8] text-black font-bold cursor-pointer">
                         turn
                     </div>
@@ -117,7 +121,7 @@
                 <div class="flex justify-evenly mt-8">
                     <button id="defense"
                         class="h-10  border-3 rounded-[20px] w-[40%]  text-center pt-1 bg-[#C8A96B] text-black font-bold">defense</button>
-                    <button
+                    <button id="attack"
                         class="h-10  border-3 rounded-[20px] w-[40%]  text-center pt-1 bg-[#C8A96B] font-bold text-black ">attack</button>
                 </div>
                 <div class="h-60  border-3 rounded-[20px] w-[90%] mx-auto  flex flex-col items-center justify-center">
@@ -143,14 +147,14 @@
     </dialog>
     <script type="module" src="../mythoria-partie1/data.js" defer></script>
     <script type="module" src="../mythoria-partie2/ui.js" defer></script>
-    <!-- <script type="module" src="../mythoria-partie2/cards.js" defer></script>
-    <script type="module" src="../mythoria-partie2/combat.js" defer></script> -->
+    <script type="module" src="../mythoria-partie2/cards.js" defer></script>
+    <script type="module" src="../mythoria-partie2/combat.js" defer></script>
     <script type="module" src="../mythoria-partie2/main.js" defer></script>
     <script type="module" src="../mythoria-partie2/opponent.js" defer></script>
-    <!-- <script type="module" src="../mythoria-partie2/state.js" defer></script>
+    <script type="module" src="../mythoria-partie2/state.js" defer></script>
     <script type="module" src="../mythoria-partie2/turns.js" defer></script>
     <script type="module" src="../mythoria-partie2/utils.js" defer></script>
-    <script type="module" src="../mythoria-partie2/cards.json" defer></script> -->
+    <script type="module" src="../mythoria-partie2/cards.json" defer></script>
 </body>
 
 </html>
