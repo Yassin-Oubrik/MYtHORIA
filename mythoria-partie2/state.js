@@ -1,11 +1,12 @@
  export const player ={
       start : false,
       role :'',
-      stop : false
+      stop : false,
+
  } 
  export const boot ={
      role :'',
-     stop : false
+     stop : false ,
  }
 
 

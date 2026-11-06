@@ -19,10 +19,9 @@ export async function affichage_card() {
                 //moncolluction=moncolluction.filter(e=>e.id =! Number(el))
                 // moncolluction.shift()
                 element.innerHTML= `
-                <img src="${trouve.image}" alt="${trouve.name}" >
+                <img src="${trouve.image}" alt="${trouve.name}" data-id="${trouve.id}">
                 `
                 break;
-
             }
         }
     })
@@ -33,7 +32,7 @@ export async function affichage_card() {
         const trouve = card_opening.find(e => e.id === Number(id))
         if (trouve) {
             element.insertAdjacentHTML('afterbegin', `
-                <img src="${trouve.image}" alt="${trouve.name}" >
+                <img src="${trouve.image}" data-id="${trouve.id}" alt="${trouve.name}" >
             `);
         }
         index++
@@ -42,15 +41,16 @@ export async function affichage_card() {
 
 //affchage des cart avant hp
  export function photo_hp() {
-    const photo_hp = document.querySelectorAll('#photo_hp')
+const photo_hp_boot = document.getElementById('photo_hp_boot')
+const photo_hp_player = document.getElementById('photo_hp_player')
+photo_hp_boot.innerHTML = `<img src="../mythoria-partie1/images/back1.jpg" class="w-full h-full">`
+photo_hp_player.innerHTML = `<img src="../mythoria-partie1/images/back1.jpg" class="w-full h-full">`
+}
+//les photo boot
+export function photo_boot() {
     const cardboot = document.querySelectorAll('#cardboot article')
-    for (const element of photo_hp) {
-        element.innerHTML=`<img src="../mythoria-partie1/images/back1.jpg" class="w-full h-full ">
-        `
-    }
     for (const element of cardboot) {
-        element.innerHTML=`<img src="../mythoria-partie1/images/back1.jpg" class="w-full h-full ">
-        `
+        element.innerHTML=` <img src="../mythoria-partie1/images/back1.jpg" class="w-full h-full">`
     }
 }
 
@@ -97,13 +97,9 @@ export function selectcart() {
                     img=null
                     oldArticle=null
                      break
-
                 }
             }}
         })
     }
-    
-
-
-
+   
 // selectcart()

@@ -1,4 +1,5 @@
 import { player, boot } from "./state.js";
+import { photo_hp , photo_boot  } from "./cards.js";
 export function role() {
 
     player.role = localStorage.getItem('playerrole');
@@ -32,7 +33,8 @@ export function role() {
     setTimeout(() => {
         dialog.close();
         role_dialog.innerHTML ='';
-        // affichage_card()
+        photo_hp()
+        photo_boot()
     }, 3000);
 }
 //les role apre refresh

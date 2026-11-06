@@ -1,5 +1,6 @@
 import { player } from "./state.js";
 import { role, afficherole } from "./opponent.js"
+import { startGame } from "./main.js";
 // import { card_opening } from "../mythoria-partie1/data.js";
 //  Dialog et pseudo
 export function psedou() {
@@ -23,6 +24,7 @@ export function psedou() {
         affiche_psedou();
         dialog.close();
         role()
+        startGame();
     });
 }
 
