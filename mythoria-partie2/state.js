@@ -9,6 +9,9 @@
      stop : false ,
  }
 
+ export const game = {
+    turn :'player'
+ }
 
 
 

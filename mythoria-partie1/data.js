@@ -220,7 +220,7 @@ const card_opening = [
         attack: 0,
         hp: 0,
         description: "Un rituel interdit qui libère une énergie sombre pour affaiblir les adversaires.",
-        image: "images/img22.jpg"
+        image: "images/img11.jpg"
     },
     {
         id: 14,
