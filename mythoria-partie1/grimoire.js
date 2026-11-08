@@ -1,6 +1,6 @@
 const partie1 = document.getElementById('partie1')
 const partie2 = document.getElementById('partie2')
-const moncard = JSON.parse(localStorage.getItem('card')) || []
+let moncard = JSON.parse(localStorage.getItem('card')) || []
 let moncolluction = JSON.parse(localStorage.getItem('col')) || []
 function save() {
     localStorage.setItem('col',JSON.stringify(moncolluction))
@@ -73,15 +73,23 @@ function add_btn() {
     const btn_deck =partie2.querySelector('#btn_deck')
     btn_deck.addEventListener('click', ()=>{
         if (confirm('voulez vous choisir cette carte ?')) {
-            const id=btn_deck.parentElement.id
+            const id=Number(btn_deck.parentElement.id)
             if (moncolluction.includes(id)) {
                 alert('carte existe deja')
             } else if(moncolluction.length >=20) {
                 alert('deck et complet')
             }else{
                 alert('carte ajouter avec succes')
+                const index = moncard.findIndex(e=>e.id === id)
+                //si ne trouve aucun element return -1
+                if (index !== -1) {
                 moncolluction.push(id)
                 save()
+                moncard.splice(index,1)
+                localStorage.setItem('card',JSON.stringify(moncard))
+                }
+
+                
                 
             }
             

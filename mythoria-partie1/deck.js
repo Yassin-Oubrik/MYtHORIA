@@ -1,11 +1,12 @@
 let moncolluction = JSON.parse(localStorage.getItem('col')) || []
-const moncard = JSON.parse(localStorage.getItem('card')) || []
+let moncard = JSON.parse(localStorage.getItem('card')) || []
+
 const deck = document.getElementById('deck')
-console.log('col:', moncolluction)
-console.log('card:', moncard)
-console.log('deck:', deck)
+// console.log('col:', moncolluction)
+// console.log('card:', moncard)
+// console.log('deck:', deck)
 for (const element of moncolluction) {
-    const trouve = moncard.find(e=> e.id === Number(element))
+    const trouve = card_opening.find(e=> e.id === Number(element))
     if (trouve) {
        deck.innerHTML += `
     <article id="${trouve.id}">
@@ -23,7 +24,7 @@ let power_total = 0
 let common_total = 0
 let legendary_total = 0
 for (const element of moncolluction) {
-        const trouve = moncard.find(e => e.id === Number(element))
+        const trouve = card_opening.find(e => e.id === Number(element))
        if (trouve) {
         power_total+=Number(trouve.power)
         if (trouve.rarity == 'Common') {
@@ -47,8 +48,11 @@ function remove() {
    for (const element of btn_remove ) {
     element.addEventListener('click' ,()=>{
         element.parentElement.remove()
+        const trouve = card_opening.find(e=>e.id === Number(element.parentElement.id))
         moncolluction = moncolluction.filter(a=>a != element.parentElement.id )
         localStorage.setItem('col', JSON.stringify(moncolluction))
+        moncard.push(trouve)
+        localStorage.setItem('card',JSON.stringify(moncard))
         statistique()
     })
    }

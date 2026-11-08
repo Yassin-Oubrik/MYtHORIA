@@ -85,6 +85,8 @@ const card_opening = [
         type: "Serviteurs de la Lumière",
         rarity: "Legendary",
         power: 100,
+        attack: 80,
+        hp: 150,
         description: "Un chevalier immortel qui protège le royaume contre les forces des ténèbres.",
         image: "images/oGJ4oakg_CB8n93SWmX8DhKsgtbUkJc3zgF6KFVjsouutdz-qIsEzBudz63GNy5CpNOMf957K9c1D5auqWl2ExCPQS3yJs4Y7ptZe12mvv5oGf1lL8svkwbh-YO5LXTAd1_O1tEHQPDUgXWpWmc_RT1tyzWGa_qvnQM1pTkiISdmLkb5I6c61lQbGZW8ffVo.jpg"
     },
@@ -94,6 +96,8 @@ const card_opening = [
         type: "Serviteurs des Ténèbres",
         rarity: "Legendary",
         power: 95,
+        attack: 95,
+        hp: 120,
         description: "Un dragon maléfique qui dévore la lumière et répand les ténèbres sur le monde.",
         image: "images/img10.jpg"
     },
@@ -103,6 +107,8 @@ const card_opening = [
         type: "Serviteurs de la Lumière",
         rarity: "Legendary",
         power: 85,
+        attack: 85,
+        hp: 100,
         description: "Un puissant sorcier qui maîtrise les secrets de la magie ancienne.",
         image: "images/img12.jpg"
     },
@@ -112,6 +118,8 @@ const card_opening = [
         type: "Serviteurs de la Lumière",
         rarity: "Epic",
         power: 78,
+        attack: 70,
+        hp: 95,
         description: "Une mage qui canalise l'énergie des cristaux pour lancer des sorts puissants.",
         image: "images/img13.png"
     },
@@ -121,6 +129,8 @@ const card_opening = [
         type: "Minions",
         rarity: "Rare",
         power: 65,
+        attack: 65,
+        hp: 80,
         description: "Un gardien de feu qui défend ses alliés grâce à ses flammes ardentes.",
         image: "images/img14.jpg"
     },
@@ -130,6 +140,8 @@ const card_opening = [
         type: "Serviteurs des Ténèbres",
         rarity: "Epic",
         power: 82,
+        attack: 90,
+        hp: 85,
         description: "Une créature maudite dont la rage augmente à chaque combat.",
         image: "images/img15.png"
     },
@@ -139,6 +151,8 @@ const card_opening = [
         type: "Serviteurs de la Lumière",
         rarity: "Epic",
         power: 80,
+        attack: 60,
+        hp: 110,
         description: "Une prêtresse mystique qui tire ses pouvoirs de la lumière de la lune.",
         image: "images/img16.jpg"
     },
@@ -148,6 +162,8 @@ const card_opening = [
         type: "Serviteurs des Ténèbres",
         rarity: "Legendary",
         power: 98,
+        attack: 100,
+        hp: 130,
         description: "Un serpent colossal venu du néant qui engloutit tout sur son passage.",
         image: "images/img17.jpg"
     },
@@ -157,6 +173,8 @@ const card_opening = [
         type: "Spells",
         rarity: "Common",
         power: 30,
+        attack: 0,
+        hp: 30,
         description: "Un sort de guérison qui restaure une partie des points de vie d'un allié.",
         image: "images/img18.jpg"
     },
@@ -166,6 +184,8 @@ const card_opening = [
         type: "Minions",
         rarity: "Common",
         power: 40,
+        attack: 30,
+        hp: 100,
         description: "Un défenseur robuste en armure de fer qui protège les autres serviteurs.",
         image: "images/img19.jpg"
     },
@@ -175,6 +195,8 @@ const card_opening = [
         type: "Serviteurs des Ténèbres",
         rarity: "Rare",
         power: 68,
+        attack: 70,
+        hp: 85,
         description: "Un wyrm glacé capable de geler ses ennemis grâce à son souffle glacial.",
         image: "images/img20.png"
     },
@@ -184,6 +206,8 @@ const card_opening = [
         type: "Serviteurs de la Lumière",
         rarity: "Legendary",
         power: 95,
+        attack: 100,
+        hp: 110,
         description: "Un seigneur de la foudre qui déchaîne des éclairs dévastateurs contre ses ennemis.",
         image: "images/img21.jpg"
     },
@@ -193,8 +217,10 @@ const card_opening = [
         type: "Spells",
         rarity: "Rare",
         power: 60,
+        attack: 0,
+        hp: 0,
         description: "Un rituel interdit qui libère une énergie sombre pour affaiblir les adversaires.",
-        image: "images/img22.jpg"
+        image: "images/img11.jpg"
     },
     {
         id: 14,
@@ -202,6 +228,8 @@ const card_opening = [
         type: "Minions",
         rarity: "Common",
         power: 45,
+        attack: 35,
+        hp: 90,
         description: "Un protecteur de la forêt qui utilise la force de la nature pour défendre ses alliés.",
         image: "images/img23.jpg"
     },
@@ -211,6 +239,8 @@ const card_opening = [
         type: "Serviteurs des Ténèbres",
         rarity: "Epic",
         power: 88,
+        attack: 95,
+        hp: 120,
         description: "Un monstre marin gigantesque qui entraîne ses ennemis dans les profondeurs abyssales.",
         image: "images/img24.jpg"
     },
@@ -220,6 +250,8 @@ const card_opening = [
         type: "Serviteurs de la Lumière",
         rarity: "Legendary",
         power: 97,
+        attack: 90,
+        hp: 130,
         description: "Un oiseau légendaire qui renaît de ses cendres et illumine le champ de bataille.",
         image: "images/img25.jpg"
     },
@@ -229,6 +261,8 @@ const card_opening = [
         type: "Spells",
         rarity: "Common",
         power: 35,
+        attack: 0,
+        hp: 40,
         description: "Un sort protecteur qui crée une barrière magique autour d'un allié.",
         image: "images/img29.jpg"
     },
@@ -238,6 +272,8 @@ const card_opening = [
         type: "Serviteurs des Ténèbres",
         rarity: "Rare",
         power: 72,
+        attack: 90,
+        hp: 65,
         description: "Un assassin furtif qui frappe ses cibles avant même qu'elles ne le remarquent.",
         image: "images/img26.jpg"
     },
@@ -247,6 +283,8 @@ const card_opening = [
         type: "Serviteurs des Ténèbres",
         rarity: "Epic",
         power: 86,
+        attack: 85,
+        hp: 110,
         description: "Un faucheur macabre qui manipule les os et répand la terreur parmi ses ennemis.",
         image: "images/img27.jpg"
     },
@@ -256,6 +294,8 @@ const card_opening = [
         type: "Spells",
         rarity: "Rare",
         power: 70,
+        attack: 0,
+        hp: 0,
         description: "Un sort céleste qui fait tomber une pluie d'étoiles sur les adversaires.",
         image: "images/img30.png"
     }
