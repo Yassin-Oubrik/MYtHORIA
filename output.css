@@ -485,6 +485,9 @@
   .my-4 {
     margin-block: calc(var(--spacing) * 4);
   }
+  .my-auto {
+    margin-block: auto;
+  }
   .-ms-1 {
     margin-inline-start: calc(var(--spacing) * -1);
   }
@@ -1030,6 +1033,15 @@
   }
   .grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .grid-cols-\[0\.1fr_0\.3fr\] {
+    grid-template-columns: 0.1fr 0.3fr;
+  }
+  .grid-cols-\[0\.2_1fr_0\.3fr\] {
+    grid-template-columns: 0.2 1fr 0.3fr;
+  }
+  .grid-cols-\[0\.2fr_1fr_0\.3fr\] {
+    grid-template-columns: 0.2fr 1fr 0.3fr;
   }
   .grid-cols-\[1fr_0\.3fr\] {
     grid-template-columns: 1fr 0.3fr;

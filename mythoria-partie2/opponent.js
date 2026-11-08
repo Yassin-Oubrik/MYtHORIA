@@ -47,6 +47,4 @@ export function afficherole() {
         document.getElementById('role_boot').textContent = boot.role;
     }
 }
-// lappele de function sur ui 
-// localStorage.removeItem('playerrole');
-// localStorage.removeItem('bootrole');
+

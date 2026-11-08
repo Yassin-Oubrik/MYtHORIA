@@ -41,8 +41,7 @@ export async function combat() {
                     dialog.close()
                 }, 1000)
             }
-            // attack_player.innerHTML = '';
-            // defense_boot.innerHTML = '';
+
         } else if (defense_player.children.length != 0 && attack_boot.children.length != 0) {
             const id_player = defense_player.querySelector('img').dataset.id
             const trouve_player = card.find(e => e.id === Number(id_player))
@@ -68,8 +67,7 @@ export async function combat() {
                     dialog.close()
                 }, 1000)
             }
-            //  defense_player.innerHTML = '';
-            // attack_boot.innerHTML = '';
+
         } else if (attack_boot.children.length != 0 && attack_player.children.length != 0) {
             const id_player = attack_player.querySelector('img').dataset.id
             const trouve_player = card.find(e => e.id === Number(id_player))
@@ -90,8 +88,7 @@ export async function combat() {
             setTimeout(() => {
                 dialog.close()
             }, 1500)
-            // attack_player.innerHTML = '';
-            // attack_boot.innerHTML = '';
+
         }else if (defense_player.children.length !== 0 &&  defense_boot.children.length !== 0) {
                damage = 0
                 damage_text.textContent = 'aucun damage'
@@ -99,8 +96,7 @@ export async function combat() {
             setTimeout(() => {
                 dialog.close()
             }, 1000)
-    //     defense_player.innerHTML = '';
-    //    defense_boot.innerHTML = '';
+
         }
 
     
@@ -175,6 +171,4 @@ export function reset() {
     document.getElementById('turn').disabled = false;
     document.getElementById('add').disabled = false;
 }
-// export function damage(at,def) {
-//     return Math.max(0,(Number(at)-Number(def)))
-// }
+

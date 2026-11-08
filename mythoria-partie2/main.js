@@ -30,8 +30,5 @@ player.start = false;
 photo_boot()
 photo_hp()
 psedou()
-// if (player.start === true) {
-//     startGame();
-// }
-//initialiser
+
 document.getElementById('new_game').addEventListener('click', newgame);

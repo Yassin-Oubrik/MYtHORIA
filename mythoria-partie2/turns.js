@@ -46,17 +46,11 @@ export async function boot() {
 
             }
             if (place) {
-                tab = [...tab, trouve.id];
+                tab.push(trouve.id);
                 await combat()
                 game.turn = 'player'
                 btn_attack.disabled = false
                 btn_defense.disabled = false
-                // document.querySelector('#card_jouer_attack article').innerHTML = '';
-                // document.querySelector('#card_jouer_defense article').innerHTML = '';
-                // document.querySelector('#card_boot_attack article').innerHTML = '';
-                // document.querySelector('#card_boot_defense article').innerHTML = '';
-
-                // tab.length = 0;
             }
             turn.disabled = false;
 
