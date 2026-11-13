@@ -16,12 +16,11 @@ export async function boot() {
         turn.disabled = true
         setTimeout(async () => {
             let trouve
-
             do {
                 const random = Math.floor(Math.random() * card.length)
                 trouve = card[random]
             } while (tab.includes(trouve.id));
-
+             //attacke ou defense
             const choix = Math.random()
             let place = false
 

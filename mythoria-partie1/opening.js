@@ -13,7 +13,7 @@ for (const element of monbooster) {
         }
     }
     // si aucun article respect la condition ajouter nevaux
-    if (res == false) {
+    if (res == false){
         afficher_opening.insertAdjacentHTML('beforeend', `
         <div id="${info_booster.id}" class="rounded-lg bg-[#241A35] p-4">
             <img src="${info_booster.image}" alt="${info_booster.name}"
@@ -39,7 +39,6 @@ if (afficher_opening.children.length === 0) {
 } else {
     document.getElementById('message').style.display = 'none'
 }
-
 
 // Animation //moin 
 const animation = document.getElementById('animation')

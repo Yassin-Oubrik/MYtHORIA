@@ -1,7 +1,6 @@
 import { player,boot,game } from "./state.js"
 import { newgame } from "./main.js";
 export async function combat() {
-    if (player.stop || boot.stop) return
     const card = await fetch('./cards.json')
         .then(res => res.json())
     const attack_player = document.querySelector('#card_jouer_attack article')
@@ -31,7 +30,7 @@ export async function combat() {
                 bg_boot.style.width = `${largeur}%`
                 setTimeout(() => {
                     dialog.close()
-                }, 1500)
+                }, 2500)
 
             } else {
                 damage = 0
@@ -87,6 +86,7 @@ export async function combat() {
             bg_boot.style.width = `${largeur_b}%`
             setTimeout(() => {
                 dialog.close()
+                
             }, 1500)
 
         }else if (defense_player.children.length !== 0 &&  defense_boot.children.length !== 0) {
@@ -101,11 +101,11 @@ export async function combat() {
 
     
 
-  hp()
+  winner()
 }
 
 
-export function hp() {
+export function winner() {
     const hp_boot = document.getElementById('hp_boot')
     const hp_player = document.getElementById('hp_player')
     const damage_text = document.getElementById('damage_text')
@@ -154,7 +154,9 @@ export function reset() {
         '#card_boot_attack article',
         '#card_boot_defense article',
         '#affichage_card article',
-        '#cardboot article'
+        '#cardboot article',
+        '#photo_hp_boot',
+        '#photo_hp_player'
      ]
      for (const element of selector) {
         document.querySelectorAll(element).forEach(e=>{
@@ -162,13 +164,11 @@ export function reset() {
         })  
      }
      //state
-    player.stop = false;
-    boot.stop = false;
     game.turn = 'player';
     //btn
-    document.getElementById('attack').disabled = false;
-    document.getElementById('defense').disabled = false;
-    document.getElementById('turn').disabled = false;
-    document.getElementById('add').disabled = false;
+    document.getElementById('attack').disabled = false
+    document.getElementById('defense').disabled = false
+    document.getElementById('turn').disabled = false
+    document.getElementById('add').disabled = true
 }
 

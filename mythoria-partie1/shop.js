@@ -6,9 +6,9 @@ boosters.forEach((b) => {
             <img src="${b.image}" alt="${b.name}">
             <h3>${b.name}</h3>
             <p>${b.description}</p>
-            <p>Price: ${b.price} DH</p>
-            <p>Number of cards: ${b.nombreCartes}</p>
-            <p>Categories: ${b.categories.join(",")}</p>
+            <p>price: ${b.price} DH</p>
+            <p>number of cards: ${b.nombreCartes}</p>
+            <p>categories: ${b.categories.join(",")}</p>
             <button class="add-cart">Add to Cart</button>
         </article>
     `;
