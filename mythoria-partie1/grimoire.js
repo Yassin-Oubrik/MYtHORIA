@@ -46,7 +46,7 @@ function filter_type() {
         colluction = moncard.filter(e =>  option_type.value === 'all' || e.type === option_type.value)
         partie1.innerHTML = ''
         if (colluction.length > 0) {
-           aficher(colluction) 
+           aficher(colluction)
         }
         grand_carte()
     }
@@ -67,7 +67,6 @@ function filter_rarity() {
     );
 }
 filter_rarity()
-
 
 function add_btn() {
     const btn_deck =partie2.querySelector('#btn_deck')

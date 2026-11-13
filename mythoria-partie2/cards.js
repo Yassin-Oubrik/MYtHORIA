@@ -4,12 +4,11 @@ let card_opening = []
 export async function affichage_card() {
     card_opening = await fetch('./cards.json')
         .then(res => res.json());
-
     let moncolluction = JSON.parse(localStorage.getItem('col')) || []
     const colluction = [...moncolluction];
     const article_player = document.querySelectorAll('#affichage_card article')
     const add = document.getElementById('add')
-    add.addEventListener('click', () => {
+    add.onclick=() => {
         for (const element of article_player) {
             if (element.children.length === 0 && colluction.length > 0) {
                 const id = colluction.shift()
@@ -20,7 +19,7 @@ export async function affichage_card() {
                 break;
             }
         }
-    })
+    }
 
 }
 
@@ -55,10 +54,9 @@ export function selectcart() {
             }
             element.style.borderColor = 'orange';
             img = element.children[0]
-            oldArticle = element;
+            oldArticle = element
 
         })
-
     }
 
     const attack = document.getElementById('attack')
@@ -72,10 +70,10 @@ export function selectcart() {
             if (game.turn !== 'player') {
                 return
             }
-            const cart_attack = document.querySelectorAll('#card_jouer_attack article')
-            for (const e of cart_attack) {
-                if (e.children.length === 0) {
-                    e.appendChild(img)
+            const cart_attack = document.querySelector('#card_jouer_attack article')
+       
+                if (cart_attack.children.length === 0) {
+                    cart_attack.appendChild(img)
                     game.turn = 'boot'
                     attack.disabled = true
                     defense.disabled = true
@@ -83,9 +81,8 @@ export function selectcart() {
                     oldArticle.style.borderColor = '';
                     img = null
                     oldArticle = null
-                    break
                 }
-            }
+            
         }
     })
     defense.addEventListener('click', () => {
@@ -94,10 +91,10 @@ export function selectcart() {
         document.querySelector('#card_boot_attack article').innerHTML = ''
         document.querySelector('#card_boot_defense article').innerHTML = ''
         if (img) {
-            const cart_defense = document.querySelectorAll('#card_jouer_defense article')
-            for (const e of cart_defense) {
-                if (e.children.length === 0) {
-                    e.appendChild(img)
+            const cart_defense = document.querySelector('#card_jouer_defense article')
+            
+                if (cart_defense.children.length === 0) {
+                    cart_defense.appendChild(img)
                     game.turn = 'boot'
                     attack.disabled = true
                     defense.disabled = true
@@ -105,11 +102,11 @@ export function selectcart() {
                     oldArticle.style.borderColor = '';
                     img = null
                     oldArticle = null
-                    break
                 }
-            }
+            
         }
     })
 }
 
-// selectcart()
+
+

@@ -1,14 +1,13 @@
 import { psedou } from "./ui.js";
-import { player } from "./state.js";
-import { affichage_card, selectcart, photo_hp, photo_boot } from "./cards.js";
+import { game } from "./state.js";
+import { affichage_card, selectcart } from "./cards.js";
 import { boot, tab } from "./turns.js";
 import { reset } from './combat.js';
 // import { combat } from "./combat.js";
-
-let gameInitialized = false;
+// let initial = false;
 export function startGame() {
-    if (gameInitialized) return;
-    gameInitialized = true;
+    // if (initial) return;
+    //  initial = true;
     affichage_card()
     selectcart()
     boot()
@@ -16,8 +15,9 @@ export function startGame() {
 
 export function newgame (){
     reset()
+    //pour iniitialiser les card de boot ajoute sur turn
     tab.length = 0
-    player.start = false
+    game.start = false
     document.getElementById('psedo').textContent = ''
     document.getElementById('role_player').textContent = ''
     document.getElementById('role_boot').textContent = ''
@@ -25,13 +25,10 @@ export function newgame (){
 //initial
 reset();
 tab.length = 0;
-player.start = false;
+game.start = false;
 // affiche_psedou()
-photo_boot()
-photo_hp()
+// photo_boot()
+// photo_hp()
 psedou()
-// if (player.start === true) {
-//     startGame();
-// }
-//initialiser
+
 document.getElementById('new_game').addEventListener('click', newgame);
